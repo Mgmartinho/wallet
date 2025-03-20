@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useMemo} from "react";
+import GlobalStyles from "./styles/GlobalStyles";
+import Layout from "./components/Layout";
+import { ThemeProvider } from "styled-components";
+import dark from "./styles/themes/dark";
+import light from "./styles/themes/light";
+import Dashboard from "./pages/Dashboard";
+import List from "./pages/List";
+import SignIn from "./pages/SigIn";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Routes from "./Routes";
+
+const App: React.FC = () => {
+
+ 
+    return (
+        
+            <ThemeProvider theme={dark}>
+                <GlobalStyles />
+                <Routes />
+            </ThemeProvider>
+        
+    );
+
+};
 
 export default App;
