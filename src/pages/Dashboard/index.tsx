@@ -14,8 +14,18 @@ import listOfMonths from '../../utils/months';
 
 import WalletBox from '../../components/WalletBox';
 
+import MessageBox from '../../components/MessageBox';
+
+import happyImg from '../../assets/happy.svg'
+import sadImd from '../../assets/sad.svg'
+import emojis from '../../utils/emojis';
 
 const Dashboard = () => {
+
+    const [monthSelected, setMonthSelected] = useState<number>(new Date().getMonth() + 1);
+    const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear());
+    const [data, setData] = useState<IData[]>([]);
+    const [selectedFrequency, setSelectedFrequency] = useState(['recorrente', 'eventual']);
 
     const { type } = useParams(); // Captura o parâmetro "type" da URL
 
@@ -47,6 +57,80 @@ const Dashboard = () => {
         });
     }, []);
 
+    //FUNÇÃO CALCULO DE SAIDAS
+    const totalExpenses = useMemo(() => {
+        let total: number = 0;
+
+        expenses.forEach(item =>  {
+           const date = new Date(item.date);
+           const year = date.getFullYear();
+           const month = date.getMonth() +1;
+
+           if(month === monthSelected && year === yearSelected){
+                try{
+                    total += Number(item.amount)
+                }catch{
+                    throw new Error('Amount invalido! Amount de ser numero.')
+                }
+           }
+        });
+        return total;
+    },[monthSelected, yearSelected]);
+
+     //FUNÇÃO CALCULO DE ENTRADAS
+     const totalGains = useMemo(() => {
+        let total: number = 0;
+
+        gains.forEach(item =>  {
+           const date = new Date(item.date);
+           const year = date.getFullYear();
+           const month = date.getMonth() +1;
+
+           if(month === monthSelected && year === yearSelected){
+                try{
+                    total += Number(item.amount)
+                }catch{
+                    throw new Error('Amount invalido! Amount de ser numero.')
+                }
+           }
+        });
+        return total;
+    },[monthSelected, yearSelected]);
+
+     //FUNÇÃO CALCULO DO SALDO
+     const totalSaldo = useMemo(() => {
+       const total = totalGains-totalExpenses
+        return total;
+    },[totalGains,totalExpenses]);
+
+
+    const message = useMemo(() => {
+        if(totalSaldo < 0){
+            return{ 
+            title: "Esse mês não foi dos melhores!",
+            description:"Sua Carteira esta Negativa",
+            footerText:"Precisamos Melhorar...Gastamos mais do que deveriamos.",
+            icon:sadImd
+            
+        }
+    }else if(totalSaldo == 0){
+        return{ 
+            title: "Uffaaa essa foi por pouco...",
+            description:"Sua Carteira esta ZERADA.",
+            footerText:"Que tal Fazer alguns lançamentos...adoraria ver o seu Saldo Positivo.",
+            icon:happyImg
+            
+        }
+    }else{
+        return{ 
+            title: "Muiiito Bem!!!!",
+            description:"Sua Carteira está Positiva...",
+            footerText:"Que tal fazer alguns investimentos?!!...Vamos ganhar mais dinheiro. Continue assim",
+            icon:happyImg
+            
+        }
+    }
+    },[totalSaldo]);
 
     interface IData {
         id: string;
@@ -57,10 +141,7 @@ const Dashboard = () => {
         tagColor: string;
     }
 
-    const [monthSelected, setMonthSelected] = useState<number>(new Date().getMonth() + 1);
-    const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear());
-    const [data, setData] = useState<IData[]>([]);
-    const [selectedFrequency, setSelectedFrequency] = useState(['recorrente', 'eventual']);
+    
 
 
     const handleFrequencyClick = (frequency: string = 'teste') => {
@@ -77,7 +158,7 @@ const Dashboard = () => {
         try {
             const parseMonth = Number(month);
             setMonthSelected(parseMonth);
-        } catch (error) {
+        } catch{
             throw new Error('Invalide month value. is accept 0- 24.')
         }
     };
@@ -86,7 +167,7 @@ const Dashboard = () => {
         try {
             const parseYear = Number(year);
             setYearSelected(parseYear);
-        } catch (error) {
+        } catch {
             throw new Error('Invalide Year value. is accept Integer Numbers.')
         }
     };
@@ -126,7 +207,7 @@ const Dashboard = () => {
             <Content>
                 <WalletBox
                     title="Saldo"
-                    amount={150.00}
+                    amount={totalSaldo}
                     footerLabel='Atualizado com base nas Entradas e Saídas'
                     icon={"dolar"}
                     color= "#4e41f0"
@@ -134,7 +215,7 @@ const Dashboard = () => {
 
                 <WalletBox
                     title="Entradas"
-                    amount={5000.00}
+                    amount={totalGains}
                     footerLabel='Atualizado com base nas Entradas e Saídas'
                     icon="arrowUp"
                     color='#f7931b'
@@ -142,10 +223,19 @@ const Dashboard = () => {
 
                 <WalletBox
                     title="Saídas"
-                    amount={4500.00}
+                    amount={totalExpenses}
                     footerLabel='Atualizado com base nas Entradas e Saídas'
                     icon='arrowDown'
                     color='#e44c4e'
+                />
+
+                <MessageBox 
+                title={message.title}
+                description={message.description}
+                footerText={message.footerText}
+                icon={message.icon}
+
+
                 />
             </Content>
         </Container>
