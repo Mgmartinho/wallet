@@ -19,6 +19,7 @@ import MessageBox from '../../components/MessageBox';
 import happyImg from '../../assets/happy.svg'
 import sadImd from '../../assets/sad.svg'
 import emojis from '../../utils/emojis';
+import PieChartBox from '../../components/PieChartBox';
 
 const Dashboard = () => {
 
@@ -61,76 +62,104 @@ const Dashboard = () => {
     const totalExpenses = useMemo(() => {
         let total: number = 0;
 
-        expenses.forEach(item =>  {
-           const date = new Date(item.date);
-           const year = date.getFullYear();
-           const month = date.getMonth() +1;
+        expenses.forEach(item => {
+            const date = new Date(item.date);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
 
-           if(month === monthSelected && year === yearSelected){
-                try{
+            if (month === monthSelected && year === yearSelected) {
+                try {
                     total += Number(item.amount)
-                }catch{
+                } catch {
                     throw new Error('Amount invalido! Amount de ser numero.')
                 }
-           }
+            }
         });
         return total;
-    },[monthSelected, yearSelected]);
+    }, [monthSelected, yearSelected]);
 
-     //FUNÇÃO CALCULO DE ENTRADAS
-     const totalGains = useMemo(() => {
+    //FUNÇÃO CALCULO DE ENTRADAS
+    const totalGains = useMemo(() => {
         let total: number = 0;
 
-        gains.forEach(item =>  {
-           const date = new Date(item.date);
-           const year = date.getFullYear();
-           const month = date.getMonth() +1;
+        gains.forEach(item => {
+            const date = new Date(item.date);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
 
-           if(month === monthSelected && year === yearSelected){
-                try{
+            if (month === monthSelected && year === yearSelected) {
+                try {
                     total += Number(item.amount)
-                }catch{
+                } catch {
                     throw new Error('Amount invalido! Amount de ser numero.')
                 }
-           }
+            }
         });
         return total;
-    },[monthSelected, yearSelected]);
+    }, [monthSelected, yearSelected]);
 
-     //FUNÇÃO CALCULO DO SALDO
-     const totalSaldo = useMemo(() => {
-       const total = totalGains-totalExpenses
+    //FUNÇÃO CALCULO DO SALDO
+    const totalSaldo = useMemo(() => {
+        const total = totalGains - totalExpenses
         return total;
-    },[totalGains,totalExpenses]);
+    }, [totalGains, totalExpenses]);
 
-
+    //MENSAGENS MOTIVACIONAIS
     const message = useMemo(() => {
-        if(totalSaldo < 0){
-            return{ 
-            title: "Esse mês não foi dos melhores!",
-            description:"Sua Carteira esta Negativa",
-            footerText:"Precisamos Melhorar...Gastamos mais do que deveriamos.",
-            icon:sadImd
-            
+        if (totalSaldo < 0) {
+            return {
+                title: "Esse mês não foi dos melhores!",
+                description: "Sua Carteira esta Negativa",
+                footerText: "Precisamos Melhorar...Gastamos mais do que deveriamos.",
+                icon: sadImd
+
+            }
+        } else if (totalSaldo == 0) {
+            return {
+                title: "Uffaaa essa foi por pouco...",
+                description: "Sua Carteira esta ZERADA.",
+                footerText: "Que tal Fazer alguns lançamentos...adoraria ver o seu Saldo Positivo.",
+                icon: happyImg
+
+            }
+        } else {
+            return {
+                title: "Muiiito Bem!!!!",
+                description: "Sua Carteira está Positiva...",
+                footerText: "Que tal fazer alguns investimentos?!!...Vamos ganhar mais dinheiro. Continue assim",
+                icon: happyImg
+
+            }
         }
-    }else if(totalSaldo == 0){
-        return{ 
-            title: "Uffaaa essa foi por pouco...",
-            description:"Sua Carteira esta ZERADA.",
-            footerText:"Que tal Fazer alguns lançamentos...adoraria ver o seu Saldo Positivo.",
-            icon:happyImg
-            
-        }
-    }else{
-        return{ 
-            title: "Muiiito Bem!!!!",
-            description:"Sua Carteira está Positiva...",
-            footerText:"Que tal fazer alguns investimentos?!!...Vamos ganhar mais dinheiro. Continue assim",
-            icon:happyImg
-            
-        }
-    }
-    },[totalSaldo]);
+    }, [totalSaldo]);
+
+    //
+    const relationExpensesVesusGains = useMemo(() => {
+        const total = totalGains + totalExpenses;
+
+        const percentGains = (totalGains / total) * 100;
+        const percentExpenses = (totalExpenses / total) * 100;
+
+        const data = [
+            {
+                name: "Entradas",
+                value: totalExpenses,
+                percent:Number( percentGains.toFixed(1)),
+                color: "#e44c4e"
+            },
+            {
+                name: "Saidas",
+                value: totalGains,
+                percent: Number(percentExpenses.toFixed(1)),
+                color: "#F7931b"
+            },
+
+
+        ];
+
+        return data;
+
+    }, [totalGains, totalExpenses])
 
     interface IData {
         id: string;
@@ -141,24 +170,13 @@ const Dashboard = () => {
         tagColor: string;
     }
 
-    
 
-
-    const handleFrequencyClick = (frequency: string = 'teste') => {
-        const alreadySelected = selectedFrequency.findIndex(item => item === frequency);
-        if (alreadySelected >= 0) {
-            const filtered = selectedFrequency.filter(item => item !== frequency);
-            setSelectedFrequency(filtered);
-        } else {
-            setSelectedFrequency((prev) => [...prev, frequency]);
-        };
-    };
 
     const handleMonthSelected = (month: string) => {
         try {
             const parseMonth = Number(month);
             setMonthSelected(parseMonth);
-        } catch{
+        } catch {
             throw new Error('Invalide month value. is accept 0- 24.')
         }
     };
@@ -210,7 +228,7 @@ const Dashboard = () => {
                     amount={totalSaldo}
                     footerLabel='Atualizado com base nas Entradas e Saídas'
                     icon={"dolar"}
-                    color= "#4e41f0"
+                    color="#4e41f0"
                 />
 
                 <WalletBox
@@ -229,14 +247,17 @@ const Dashboard = () => {
                     color='#e44c4e'
                 />
 
-                <MessageBox 
-                title={message.title}
-                description={message.description}
-                footerText={message.footerText}
-                icon={message.icon}
-
+                <MessageBox
+                    title={message.title}
+                    description={message.description}
+                    footerText={message.footerText}
+                    icon={message.icon}
 
                 />
+
+                <PieChartBox data={relationExpensesVesusGains}
+                />
+
             </Content>
         </Container>
     )
