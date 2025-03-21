@@ -20,6 +20,7 @@ import happyImg from '../../assets/happy.svg'
 import sadImd from '../../assets/sad.svg'
 import emojis from '../../utils/emojis';
 import PieChartBox from '../../components/PieChartBox';
+import HistoryBox from '../../components/HistoryBox';
 
 const Dashboard = () => {
 
@@ -144,7 +145,7 @@ const Dashboard = () => {
             {
                 name: "Entradas",
                 value: totalExpenses,
-                percent:Number( percentGains.toFixed(1)),
+                percent: Number(percentGains.toFixed(1)),
                 color: "#e44c4e"
             },
             {
@@ -161,106 +162,165 @@ const Dashboard = () => {
 
     }, [totalGains, totalExpenses])
 
-    interface IData {
-        id: string;
-        description: string;
-        amountFormmated: string;
-        frequency: string;
-        dateFormatted: string;
-        tagColor: string;
+
+    const hitoryData = useMemo(() => {
+        return listOfMonths.map((_, month) => {
+            let amountEntry = 0;
+            gains.forEach(gain => {
+                const date = new Date(gain.date);
+                const gainMonth = date.getMonth();
+                const gainYear = date.getFullYear();
+
+                if (gainMonth === month && gainYear === yearSelected) {
+                    try {
+                        amountEntry += Number(gain.amount);
+
+                    } catch {
+                        throw new Error("AmountEntry is invalid. amount Entry muyst be a valid Number")
+                    }
+                }
+            })
+
+
+
+            let amountOutput = 0;
+            expenses.forEach(expense => {
+                const date = new Date(expense.date);
+                const expenseMonth = Number(date.getMonth());
+                const expenseYear = Number(date.getFullYear());
+
+                if (expenseMonth === month && expenseYear === yearSelected) {
+                    try {
+                        amountOutput += Number(expense.amount);
+
+                    } catch {
+                        throw new Error("AmountOutput is invalid. amount Entry muyst be a valid Number")
+                    }
+                }
+            })
+
+
+            return {
+                monthNumber: month,
+                month: listOfMonths[month].substring(0, 3),
+                amountEntry,
+                amountOutput,
+            }
+        })
+
+        .filter((item) => {
+            const currentMonth = new Date().getMonth();
+            const currentYear = new Date().getFullYear();
+            return (yearSelected === currentYear && item.monthNumber <= currentMonth) ||  (yearSelected < currentYear)
+        })
+}, [yearSelected]);
+
+
+interface IData {
+    id: string;
+    description: string;
+    amountFormmated: string;
+    frequency: string;
+    dateFormatted: string;
+    tagColor: string;
+}
+
+
+
+const handleMonthSelected = (month: string) => {
+    try {
+        const parseMonth = Number(month);
+        setMonthSelected(parseMonth);
+    } catch {
+        throw new Error('Invalide month value. is accept 0- 24.')
     }
+};
 
+const handleYearSelected = (year: string) => {
+    try {
+        const parseYear = Number(year);
+        setYearSelected(parseYear);
+    } catch {
+        throw new Error('Invalide Year value. is accept Integer Numbers.')
+    }
+};
 
+useEffect(() => {
+    const filteredDate = listDate.filter(item => {
+        const date = new Date(item.date);
+        const month = (date.getMonth() + 1);
+        const year = (date.getFullYear());
+        return month === monthSelected
+            && year === yearSelected
+            && selectedFrequency.includes(item.frequency)
+            ;
+    });
 
-    const handleMonthSelected = (month: string) => {
-        try {
-            const parseMonth = Number(month);
-            setMonthSelected(parseMonth);
-        } catch {
-            throw new Error('Invalide month value. is accept 0- 24.')
-        }
-    };
+    const formattedData = filteredDate.map(item => ({
+        id: uuidv4(),
+        description: item.description,
+        amountFormmated: formatCurrency(Number(item.amount)),
+        frequency: item.frequency,
+        dateFormatted: formatDate(String(item.date)),
+        tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E',
+    }));
 
-    const handleYearSelected = (year: string) => {
-        try {
-            const parseYear = Number(year);
-            setYearSelected(parseYear);
-        } catch {
-            throw new Error('Invalide Year value. is accept Integer Numbers.')
-        }
-    };
+    setData(formattedData);
+}, [listDate, monthSelected, yearSelected, data.length, selectedFrequency]);
 
-    useEffect(() => {
-        const filteredDate = listDate.filter(item => {
-            const date = new Date(item.date);
-            const month = (date.getMonth() + 1);
-            const year = (date.getFullYear());
-            return month === monthSelected
-                && year === yearSelected
-                && selectedFrequency.includes(item.frequency)
-                ;
-        });
+return (
+    <Container>
+        <ContentHeader title="Dashboard" lineColors="#9b9394">
+            <SelectInput options={months} onChange={(e) => handleMonthSelected(e.target.value)}
+                defaultValue={monthSelected} />
+            <SelectInput options={years} onChange={(e) => handleYearSelected(e.target.value)}
+                defaultValue={yearSelected} />
+        </ContentHeader>
 
-        const formattedData = filteredDate.map(item => ({
-            id: uuidv4(),
-            description: item.description,
-            amountFormmated: formatCurrency(Number(item.amount)),
-            frequency: item.frequency,
-            dateFormatted: formatDate(String(item.date)),
-            tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E',
-        }));
+        <Content>
+            <WalletBox
+                title="Saldo"
+                amount={totalSaldo}
+                footerLabel='Atualizado com base nas Entradas e Saídas'
+                icon={"dolar"}
+                color="#4e41f0"
+            />
 
-        setData(formattedData);
-    }, [listDate, monthSelected, yearSelected, data.length, selectedFrequency]);
+            <WalletBox
+                title="Entradas"
+                amount={totalGains}
+                footerLabel='Atualizado com base nas Entradas e Saídas'
+                icon="arrowUp"
+                color='#f7931b'
+            />
 
-    return (
-        <Container>
-            <ContentHeader title="Dashboard" lineColors="#9b9394">
-                <SelectInput options={months} onChange={(e) => handleMonthSelected(e.target.value)}
-                    defaultValue={monthSelected} />
-                <SelectInput options={years} onChange={(e) => handleYearSelected(e.target.value)}
-                    defaultValue={yearSelected} />
-            </ContentHeader>
+            <WalletBox
+                title="Saídas"
+                amount={totalExpenses}
+                footerLabel='Atualizado com base nas Entradas e Saídas'
+                icon='arrowDown'
+                color='#e44c4e'
+            />
 
-            <Content>
-                <WalletBox
-                    title="Saldo"
-                    amount={totalSaldo}
-                    footerLabel='Atualizado com base nas Entradas e Saídas'
-                    icon={"dolar"}
-                    color="#4e41f0"
-                />
+            <MessageBox
+                title={message.title}
+                description={message.description}
+                footerText={message.footerText}
+                icon={message.icon}
 
-                <WalletBox
-                    title="Entradas"
-                    amount={totalGains}
-                    footerLabel='Atualizado com base nas Entradas e Saídas'
-                    icon="arrowUp"
-                    color='#f7931b'
-                />
+            />
 
-                <WalletBox
-                    title="Saídas"
-                    amount={totalExpenses}
-                    footerLabel='Atualizado com base nas Entradas e Saídas'
-                    icon='arrowDown'
-                    color='#e44c4e'
-                />
+            <PieChartBox data={relationExpensesVesusGains}
+            />
 
-                <MessageBox
-                    title={message.title}
-                    description={message.description}
-                    footerText={message.footerText}
-                    icon={message.icon}
-
-                />
-
-                <PieChartBox data={relationExpensesVesusGains}
-                />
-
-            </Content>
-        </Container>
-    )
+            <HistoryBox
+                data={hitoryData}
+                lineColorAmountEntry="#f7931b"
+                lineColorAmountOutpu="#e44c4e"
+            />
+        </Content>
+    </Container>
+)
 }
 
 export default Dashboard;
