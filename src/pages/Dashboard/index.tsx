@@ -21,6 +21,8 @@ import sadImd from '../../assets/sad.svg'
 import emojis from '../../utils/emojis';
 import PieChartBox from '../../components/PieChartBox';
 import HistoryBox from '../../components/HistoryBox';
+import BarChartBox from '../../components/BarChartBox';
+import { title } from 'process';
 
 const Dashboard = () => {
 
@@ -134,25 +136,25 @@ const Dashboard = () => {
         }
     }, [totalSaldo]);
 
-    //
+    //GRAFICO DE PIZZA
     const relationExpensesVesusGains = useMemo(() => {
         const total = totalGains + totalExpenses;
 
-        const percentGains = (totalGains / total) * 100;
-        const percentExpenses = (totalExpenses / total) * 100;
+        const percentGains = Number(((totalGains / total) * 100).toFixed(1));
+        const percentExpenses = Number(((totalExpenses / total) * 100).toFixed(1));
 
         const data = [
             {
                 name: "Entradas",
                 value: totalExpenses,
-                percent: Number(percentGains.toFixed(1)),
-                color: "#e44c4e"
+                percent: percentGains ? percentGains : 0,
+                color: "#F7931b"
             },
             {
                 name: "Saidas",
                 value: totalGains,
-                percent: Number(percentExpenses.toFixed(1)),
-                color: "#F7931b"
+                percent: percentExpenses ? percentExpenses : 0,
+                color: "#e44c4e"
             },
 
 
@@ -208,119 +210,213 @@ const Dashboard = () => {
             }
         })
 
-        .filter((item) => {
-            const currentMonth = new Date().getMonth();
-            const currentYear = new Date().getFullYear();
-            return (yearSelected === currentYear && item.monthNumber <= currentMonth) ||  (yearSelected < currentYear)
+            .filter((item) => {
+                const currentMonth = new Date().getMonth();
+                const currentYear = new Date().getFullYear();
+                return (yearSelected === currentYear && item.monthNumber <= currentMonth) || (yearSelected < currentYear)
+            })
+    }, [yearSelected]);
+
+    //GRAFICOS DE BARRAS
+    const relationExpensevesRecurrenteVersusEventual = useMemo(() => {
+        let amountRecorrent = 0;
+        let amountEventual = 0;
+
+        expenses.filter((expenses) => {
+            const date = new Date(expenses.date);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+
+            return month === monthSelected && year === yearSelected;
         })
-}, [yearSelected]);
+            .forEach((expense) => {
+                if (expense.frequency === "recorrente") {
+                    return amountEventual += Number(expense.amount);
+                } if (expense.frequency === "eventual") {
+                    return amountRecorrent += Number(expense.amount);
+
+                }
+            });
 
 
-interface IData {
-    id: string;
-    description: string;
-    amountFormmated: string;
-    frequency: string;
-    dateFormatted: string;
-    tagColor: string;
-}
+        const total = amountRecorrent + amountEventual;
+        const Recurrentpercent = Number(((amountRecorrent / total) * 100).toFixed(1));
+        const Eventualpercent = Number(((amountEventual / total) * 100).toFixed(1));
+        return [
+            {
+                name: 'recorrente',
+                amount: amountRecorrent,
+                percent: Recurrentpercent ? Recurrentpercent : 0,
+                color: "#f7931b",
+            },
 
+            {
+                name: 'eventuais',
+                amount: amountEventual,
+                percent: Eventualpercent ? Eventualpercent : 0,
+                color: "#e44c4e",
+            },
+        ]
 
+    }, [monthSelected, yearSelected]);
+    //GRAFICOS DE BARRAS
+    const relationGainsRecurrenteVersusEventual = useMemo(() => {
+        let amountRecorrent = 0;
+        let amountEventual = 0;
 
-const handleMonthSelected = (month: string) => {
-    try {
-        const parseMonth = Number(month);
-        setMonthSelected(parseMonth);
-    } catch {
-        throw new Error('Invalide month value. is accept 0- 24.')
+        gains.filter((gain) => {
+            const date = new Date(gain.date);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+
+            return month === monthSelected && year === yearSelected;
+        })
+            .forEach((gain) => {
+                if (gain.frequency === "recorrente") {
+                    return amountEventual += Number(gain.amount);
+                } if (gain.frequency === "eventual") {
+                    return amountRecorrent += Number(gain.amount);
+
+                }
+            });
+
+            const total = amountRecorrent + amountEventual;
+            const percentRecurrent = Number(((amountRecorrent / total) * 100).toFixed(1));
+            const percentEventual = Number(((amountEventual / total) * 100).toFixed(1));
+
+        return [
+            {
+                name: 'recorrente',
+                amount: amountRecorrent,
+                percent:  percentRecurrent ? percentRecurrent : 0,
+                color: "#f7931b",
+            },
+
+            {
+                name: 'Eventual',
+                amount: amountEventual,
+                percent: percentEventual ? percentEventual : 0,
+                color: "#e44c4e",
+            },
+        ]
+
+    }, [monthSelected, yearSelected]);
+
+    interface IData {
+        id: string;
+        description: string;
+        amountFormmated: string;
+        frequency: string;
+        dateFormatted: string;
+        tagColor: string;
     }
-};
 
-const handleYearSelected = (year: string) => {
-    try {
-        const parseYear = Number(year);
-        setYearSelected(parseYear);
-    } catch {
-        throw new Error('Invalide Year value. is accept Integer Numbers.')
-    }
-};
 
-useEffect(() => {
-    const filteredDate = listDate.filter(item => {
-        const date = new Date(item.date);
-        const month = (date.getMonth() + 1);
-        const year = (date.getFullYear());
-        return month === monthSelected
-            && year === yearSelected
-            && selectedFrequency.includes(item.frequency)
-            ;
-    });
 
-    const formattedData = filteredDate.map(item => ({
-        id: uuidv4(),
-        description: item.description,
-        amountFormmated: formatCurrency(Number(item.amount)),
-        frequency: item.frequency,
-        dateFormatted: formatDate(String(item.date)),
-        tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E',
-    }));
+    const handleMonthSelected = (month: string) => {
+        try {
+            const parseMonth = Number(month);
+            setMonthSelected(parseMonth);
+        } catch {
+            throw new Error('Invalide month value. is accept 0- 24.')
+        }
+    };
 
-    setData(formattedData);
-}, [listDate, monthSelected, yearSelected, data.length, selectedFrequency]);
+    const handleYearSelected = (year: string) => {
+        try {
+            const parseYear = Number(year);
+            setYearSelected(parseYear);
+        } catch {
+            throw new Error('Invalide Year value. is accept Integer Numbers.')
+        }
+    };
 
-return (
-    <Container>
-        <ContentHeader title="Dashboard" lineColors="#9b9394">
-            <SelectInput options={months} onChange={(e) => handleMonthSelected(e.target.value)}
-                defaultValue={monthSelected} />
-            <SelectInput options={years} onChange={(e) => handleYearSelected(e.target.value)}
-                defaultValue={yearSelected} />
-        </ContentHeader>
+    useEffect(() => {
+        const filteredDate = listDate.filter(item => {
+            const date = new Date(item.date);
+            const month = (date.getMonth() + 1);
+            const year = (date.getFullYear());
+            return month === monthSelected
+                && year === yearSelected
+                && selectedFrequency.includes(item.frequency)
+                ;
+        });
 
-        <Content>
-            <WalletBox
-                title="Saldo"
-                amount={totalSaldo}
-                footerLabel='Atualizado com base nas Entradas e Saídas'
-                icon={"dolar"}
-                color="#4e41f0"
-            />
+        const formattedData = filteredDate.map(item => ({
+            id: uuidv4(),
+            description: item.description,
+            amountFormmated: formatCurrency(Number(item.amount)),
+            frequency: item.frequency,
+            dateFormatted: formatDate(String(item.date)),
+            tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E',
+        }));
 
-            <WalletBox
-                title="Entradas"
-                amount={totalGains}
-                footerLabel='Atualizado com base nas Entradas e Saídas'
-                icon="arrowUp"
-                color='#f7931b'
-            />
+        setData(formattedData);
+    }, [listDate, monthSelected, yearSelected, data.length, selectedFrequency]);
 
-            <WalletBox
-                title="Saídas"
-                amount={totalExpenses}
-                footerLabel='Atualizado com base nas Entradas e Saídas'
-                icon='arrowDown'
-                color='#e44c4e'
-            />
+    return (
+        <Container>
+            <ContentHeader title="Dashboard" lineColors="#9b9394">
+                <SelectInput options={months} onChange={(e) => handleMonthSelected(e.target.value)}
+                    defaultValue={monthSelected} />
+                <SelectInput options={years} onChange={(e) => handleYearSelected(e.target.value)}
+                    defaultValue={yearSelected} />
+            </ContentHeader>
 
-            <MessageBox
-                title={message.title}
-                description={message.description}
-                footerText={message.footerText}
-                icon={message.icon}
+            <Content>
+                <WalletBox
+                    title="Saldo"
+                    amount={totalSaldo}
+                    footerLabel='Atualizado com base nas Entradas e Saídas'
+                    icon={"dolar"}
+                    color="#4e41f0"
+                />
 
-            />
+                <WalletBox
+                    title="Entradas"
+                    amount={totalGains}
+                    footerLabel='Atualizado com base nas Entradas e Saídas'
+                    icon="arrowUp"
+                    color='#f7931b'
+                />
 
-            <PieChartBox data={relationExpensesVesusGains}
-            />
+                <WalletBox
+                    title="Saídas"
+                    amount={totalExpenses}
+                    footerLabel='Atualizado com base nas Entradas e Saídas'
+                    icon='arrowDown'
+                    color='#e44c4e'
+                />
 
-            <HistoryBox
-                data={hitoryData}
-                lineColorAmountEntry="#f7931b"
-                lineColorAmountOutpu="#e44c4e"
-            />
-        </Content>
-    </Container>
-)
+                <MessageBox
+                    title={message.title}
+                    description={message.description}
+                    footerText={message.footerText}
+                    icon={message.icon}
+
+                />
+
+                <PieChartBox data={relationExpensesVesusGains}
+                />
+
+                <HistoryBox
+                    data={hitoryData}
+                    lineColorAmountEntry="#f7931b"
+                    lineColorAmountOutpu="#e44c4e"
+                />
+
+                <BarChartBox
+                    data={relationExpensevesRecurrenteVersusEventual}
+                    title="Saidas"
+                />
+
+                <BarChartBox
+                    data={relationGainsRecurrenteVersusEventual}
+                    title="Entradas"
+                />
+            </Content>
+        </Container>
+    )
 }
 
 export default Dashboard;

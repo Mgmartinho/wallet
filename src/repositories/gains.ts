@@ -1,12 +1,21 @@
 export default [
-  { "description": "Salário", "amount": "1300.52", "type": "entrada", "frequency": "recorrente", "date": "2023-01-10" },
-  { "description": "Freela", "amount": "150.13", "type": "entrada", "frequency": "eventual", "date": "2023-01-17" },
-  { "description": "Salário", "amount": "2500.23", "type": "entrada", "frequency": "recorrente", "date": "2024-02-10" },
-  { "description": "Freela site", "amount": "900.23", "type": "entrada", "frequency": "eventual", "date": "2024-02-21" },
-  { "description": "Freela app", "amount": "950.92", "type": "entrada", "frequency": "eventual", "date": "2024-02-23" },
-  { "description": "Salário", "amount": "2500.25", "type": "entrada", "frequency": "recorrente", "date": "2025-03-10" },
-  { "description": "Site ", "amount": "7500.25", "type": "entrada", "frequency": "eventual", "date": "2025-03-10" },
-  { "description": "Salário", "amount": "2500.18", "type": "entrada", "frequency": "recorrente", "date": "2025-04-10" },
-  { "description": "Salário", "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2025-05-10" },
-  { "description": "Salário", "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2025-06-10" },
-  { "description": "Salário", "amount": "2500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-07-10" }]
+
+  { "description": "Salário", "amount": "4700.00", "type": "entrada", "frequency": "recorrente", "date": "2025-01-10" },
+  { "description": "Salário", "amount": "4600.00", "type": "entrada", "frequency": "recorrente", "date": "2025-02-10" },
+
+  // Março
+  { "description": "Salário", "amount": "4800.00", "type": "entrada", "frequency": "recorrente", "date": "2025-03-10" },
+  { "description": "Freela Site", "amount": "1000.00", "type": "entrada", "frequency": "eventual", "date": "2025-03-17" },
+  { "description": "Leticia", "amount": "1000.00", "type": "entrada", "frequency": "recorrente", "date": "2025-03-17" },
+
+  // Abril
+  { "description": "Salário", "amount": "4800.00", "type": "entrada", "frequency": "recorrente", "date": "2025-04-10" },
+  { "description": "Freelance Site", "amount": "400.00", "type": "entrada", "frequency": "eventual", "date": "2025-04-17" },
+  { "description": "Leticia", "amount": "1000.00", "type": "entrada", "frequency": "recorrente", "date": "2025-04-17" },
+
+
+]
+
+
+
+
