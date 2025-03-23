@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Container, Content } from './style';
 import ContentHeader from '../../components/ContentHeader';
@@ -313,23 +314,23 @@ const Dashboard = () => {
 
 
 
-    const handleMonthSelected = (month: string) => {
+    const handleMonthSelected = useCallback((month: string) => {
         try {
             const parseMonth = Number(month);
             setMonthSelected(parseMonth);
         } catch {
             throw new Error('Invalide month value. is accept 0- 24.')
         }
-    };
+    },[]);
 
-    const handleYearSelected = (year: string) => {
+    const handleYearSelected = useCallback((year: string) => {
         try {
             const parseYear = Number(year);
             setYearSelected(parseYear);
         } catch {
             throw new Error('Invalide Year value. is accept Integer Numbers.')
         }
-    };
+    },[]);
 
     useEffect(() => {
         const filteredDate = listDate.filter(item => {

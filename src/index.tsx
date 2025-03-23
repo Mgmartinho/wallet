@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import { ThemeProvider } from './hooks/themes';
 
 import reportWebVitals from './reportWebVitals';
 import Dashboard from './pages/Dashboard';
@@ -11,7 +12,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+
   </React.StrictMode>
 );
 
