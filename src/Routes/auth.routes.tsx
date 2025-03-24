@@ -1,13 +1,10 @@
-import React from "react";
-
-import ReactSwitch from "react-switch";
-import { Route, Routes, BrowserRouter,  } from "react-router-dom";
-
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import SignIn from "../pages/SigIn";
 
 const AuthRoutes: React.FC = () => (
     <Routes>
-            <Route path="/" Component={SignIn}/>
+        <Route path="/" element={<SignIn />} />
     </Routes>
 );
 
