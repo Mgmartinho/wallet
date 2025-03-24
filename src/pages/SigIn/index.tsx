@@ -1,13 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Container, Logo, Form, FormTitle } from './style';
+import logoImg from '../../assets/logo.svg'
 
 const SignIn = () => {
-    return (
-        <div>
-            <h1>
-                SignIn
-            </h1>
+    const [selectedFrequency, setSelectedFrequency] = useState(['recorrente', 'eventual']);
 
-        </div>
+    return (
+        <Container>
+            <Logo>
+                <img src={logoImg} alt="Logo" />
+                <h2>Minha - Carteira</h2>    
+                <span>Realize o seu Login</span>
+            </Logo>
+
+            <Form>
+                <FormTitle>
+                    <h1>Entrar</h1>
+                </FormTitle>
+
+                <input type="text" placeholder="Usuário" />
+                <input type="password" placeholder="Senha" />
+                
+                <button
+                    type="button"
+                >
+                    Entrar
+                </button>
+            </Form>
+        </Container>
     )
 }
 

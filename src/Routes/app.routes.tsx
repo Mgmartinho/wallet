@@ -8,6 +8,8 @@ import Dashboard from '../pages/Dashboard'
 import List from '../pages/List'
 import SignIn from '../pages/SigIn'
 // Removed Switch import as it is replaced by Routes
+import AuthRoutes from './auth.routes'
+
 
 const AppRoutes = () => {
     return (
