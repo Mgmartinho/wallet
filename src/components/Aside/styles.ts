@@ -35,20 +35,40 @@ export const MenuContainer = styled.div`
 `;
 
 export const MenuItemLink = styled(Link)`
-color: ${(props: { theme: { colors: { white: any; }; }; }) => props.theme.colors.white};
-text-decoration: none;
-transition: opacity .3s;
-margin: 7px 0;
-align-items: center;
+     color: ${(props: { theme: { colors: { white: any; }; }; }) => props.theme.colors.white};
+     text-decoration: none;
+     transition: opacity .3s;
+     margin: 7px 0;
+     align-items: center;
 
-&:hover{
-     opacity: .7;
-}
+     &:hover{
+          opacity: .7;
+     }
 
->svg{
-     font-size:18px;
-     margin-right: 5px;
-}
+     >svg{
+          font-size:18px;
+          margin-right: 5px;
+     }
 
 `;
 
+export const MenuItemButton = styled.button`
+     color: ${props => props.theme.colors.white};
+     font-size: 16px;
+     transition: opacity .3s;
+     margin: 7px 0; // Adiciona um pequeno padding para melhor alinhamento
+     display: flex;  // Adiciona flex para alinhamento adequado
+     align-items: center;  // Alinha o ícone e o texto verticalmente
+     justify-content: flex-start;  // Garante que o conteúdo comece à esquerda
+     border: none;
+     background: none;
+
+     &:hover{
+          opacity: .7;
+     }
+
+     >svg{
+          font-size:18px;
+          margin-right: 5px;
+     }
+`;

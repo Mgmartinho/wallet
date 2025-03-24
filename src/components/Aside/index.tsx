@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Header, LogImg, MenuContainer, MenuItemLink, Title } from './styles'
+import { Container, Header, LogImg, MenuContainer, MenuItemLink, Title,MenuItemButton } from './styles'
 import logImg from '../../assets/logo.svg'
 import {
     MdDashboard,
@@ -8,10 +8,14 @@ import {
     MdExitToApp,
 } from 'react-icons/md';
 
+import { useAuth } from "../../hooks/auth";
+
 const Aside: React.FC = () => {
     const handleLogout = () => {
         console.log("Usuário saiu"); // Substitua pela lógica de logout real
     };
+
+    const { signOut } = useAuth();
 
     return (
         <Container>
@@ -32,10 +36,10 @@ const Aside: React.FC = () => {
                     <MdArrowDownward size={18} />
                     Saídas
                 </MenuItemLink>
-                <MenuItemLink  to="/list/exit-balance">
+                <MenuItemButton  onClick={signOut}>
                     <MdExitToApp size={18} />
                     Sair
-                </MenuItemLink>
+                </MenuItemButton>
             </MenuContainer>
         </Container>
     );
