@@ -76,9 +76,17 @@ export default [
  { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-07-10" },
  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-07-10" },
  { "description": "Cartão Nubank", "amount": "502.07", "type": "saída", "frequency": "eventual", "date": "2025-07-10" },
- { "description": "Seguro Automotivo", "amount": "407.18", "type": "saída", "frequency": "recorrente", "date": "2025-07-10" },
+ { "description": "Seguro Automotivo", "amount": "1407.18", "type": "saída", "frequency": "recorrente", "date": "2025-07-10" },
  { "description": "Cartão C6 Bank", "amount": "2000.87", "type": "saída", "frequency": "eventual", "date": "2025-07-10" },
 
+// Agosto
 
- 
+ { "description": "Internet", "amount": "262.00", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
+ { "description": "Luz", "amount": "260.00", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
+ { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
+ { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
+ { "description": "Cartão Nubank", "amount": "330.08", "type": "saída", "frequency": "eventual", "date": "2025-08-10" },
+ { "description": "Seguro Automotivo", "amount": "1408.18", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
+ { "description": "Cartão C6 Bank", "amount": "600.00", "type": "saída", "frequency": "eventual", "date": "2025-08-10" },
+
 ]

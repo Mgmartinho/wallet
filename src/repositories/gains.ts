@@ -28,11 +28,9 @@ export default [
   
   { "description": "Férias", "amount": "2000.00", "type": "entrada", "frequency": "eventual", "date": "2025-07-10" },
 
-  { "description": "IR", "amount": "1000.00", "type": "entrada", "frequency": "eventual", "date": "2025-07-10" },
-
+  // Agosto
+  { "description": "Salário", "amount": "4600.00", "type": "entrada", "frequency": "recorrente", "date": "2025-08-10" },
 
 ]
-
-
 
 
