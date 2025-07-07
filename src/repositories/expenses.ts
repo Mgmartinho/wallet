@@ -77,7 +77,8 @@ export default [
  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-07-10" },
  { "description": "Cartão Nubank", "amount": "502.07", "type": "saída", "frequency": "eventual", "date": "2025-07-10" },
  { "description": "Seguro Automotivo", "amount": "1407.18", "type": "saída", "frequency": "recorrente", "date": "2025-07-10" },
- { "description": "Cartão C6 Bank", "amount": "2000.87", "type": "saída", "frequency": "eventual", "date": "2025-07-10" },
+ { "description": "Cartão C6 Bank", "amount": "2600.87", "type": "saída", "frequency": "eventual", "date": "2025-07-10" },
+ { "description": "Cartão C6 Bank adiantamento", "amount": "800.87", "type": "saída", "frequency": "eventual", "date": "2025-07-10" },
 
 // Agosto
 
