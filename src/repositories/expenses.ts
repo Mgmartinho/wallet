@@ -82,12 +82,34 @@ export default [
 
 // Agosto
 
- { "description": "Internet", "amount": "262.00", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
+ { "description": "Internet", "amount": "285.00", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
  { "description": "Luz", "amount": "260.00", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
  { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
- { "description": "Cartão Nubank", "amount": "330.08", "type": "saída", "frequency": "eventual", "date": "2025-08-10" },
- { "description": "Seguro Automotivo", "amount": "1408.18", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
- { "description": "Cartão C6 Bank", "amount": "600.00", "type": "saída", "frequency": "eventual", "date": "2025-08-10" },
+ { "description": "Cartão Nubank", "amount": "335.08", "type": "saída", "frequency": "eventual", "date": "2025-08-10" },
+ { "description": "Seguro Automotivo", "amount": "1708.18", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
+ { "description": "Cartão C6 Bank", "amount": "1430.00", "type": "saída", "frequency": "eventual", "date": "2025-08-10" },
+
+
+ // Setembro
+
+ { "description": "Internet", "amount": "285.00", "type": "saída", "frequency": "recorrente", "date": "2025-09-10" },
+ { "description": "Luz", "amount": "260.00", "type": "saída", "frequency": "recorrente", "date": "2025-09-10" },
+ { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-09-10" },
+ { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-09-10" },
+ { "description": "Cartão Nubank", "amount": "330.09", "type": "saída", "frequency": "eventual", "date": "2025-09-10" },
+ { "description": "Seguro Automotivo", "amount": "1709.18", "type": "saída", "frequency": "recorrente", "date": "2025-09-10" },
+ { "description": "Cartão C6 Bank", "amount": "600.00", "type": "saída", "frequency": "eventual", "date": "2025-09-10" },
+
+
+ // Outubro
+
+ { "description": "Internet", "amount": "285.00", "type": "saída", "frequency": "recorrente", "date": "2025-10-10" },
+ { "description": "Luz", "amount": "260.00", "type": "saída", "frequency": "recorrente", "date": "2025-10-10" },
+ { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-10-10" },
+ { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-10-10" },
+ { "description": "Cartão Nubank", "amount": "330.10", "type": "saída", "frequency": "eventual", "date": "2025-10-10" },
+ { "description": "Seguro Automotivo", "amount": "1710.18", "type": "saída", "frequency": "recorrente", "date": "2025-10-10" },
+ { "description": "Cartão C6 Bank", "amount": "600.00", "type": "saída", "frequency": "eventual", "date": "2025-10-10" },
 
 ]
