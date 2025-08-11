@@ -87,7 +87,11 @@ export default [
  { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
  { "description": "Cartão Nubank", "amount": "335.08", "type": "saída", "frequency": "eventual", "date": "2025-08-10" },
+<<<<<<< HEAD
  { "description": "Seguro Automotivo", "amount": "1708.18", "type": "saída", "frequency": "eventual", "date": "2025-08-10" },
+=======
+ { "description": "Seguro Automotivo", "amount": "1708.18", "type": "saída", "frequency": "recorrente", "date": "2025-08-10" },
+>>>>>>> 4cb943c67a8b43d32b8a1f2a2566efff407105cd
  { "description": "Cartão C6 Bank", "amount": "1600.00", "type": "saída", "frequency": "eventual", "date": "2025-08-10" },
 
 
