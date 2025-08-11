@@ -33,10 +33,10 @@ export default [
    { "description": "IRPF", "amount": "1030.00", "type": "entrada", "frequency": "eventual", "date": "2025-08-10" },
 
    // Setembro
-  { "description": "Salário", "amount": "4600.00", "type": "entrada", "frequency": "recorrente", "date": "2025-09-10" },
+  { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-09-10" },
 
    // Outubro
-  { "description": "Salário", "amount": "4600.00", "type": "entrada", "frequency": "recorrente", "date": "2025-10-10" },
+  { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-10-10" },
 
 ]
 
