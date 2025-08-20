@@ -34,6 +34,8 @@ export default [
 
    // Setembro
   { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-09-10" },
+  { "description": "Freelance Web Wix", "amount": "150.00", "type": "entrada", "frequency": "eventual", "date": "2025-09-10" },
+  { "description": "Reserva Financeira", "amount": "2259.00", "type": "entrada", "frequency": "eventual", "date": "2025-09-10" },
 
    // Outubro
   { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-10-10" },

@@ -99,7 +99,8 @@ export default [
  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-09-10" },
  { "description": "Cartão Nubank", "amount": "330.09", "type": "saída", "frequency": "eventual", "date": "2025-09-10" },
  { "description": "Seguro Automotivo", "amount": "1100.00", "type": "saída", "frequency": "eventual", "date": "2025-09-10" },
- { "description": "Cartão C6 Bank", "amount": "1500.00", "type": "saída", "frequency": "eventual", "date": "2025-09-10" },
+ { "description": "Cartão C6 Bank", "amount": "2000.00", "type": "saída", "frequency": "eventual", "date": "2025-09-10" },
+ { "description": "Manutenção Veiculo", "amount": "2259.00", "type": "saída", "frequency": "eventual", "date": "2025-09-10" },
 
 
  // Outubro
