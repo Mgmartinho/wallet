@@ -41,7 +41,7 @@ export default [
   { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-10-10" },
 
    // Novembro
-  { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-11-10" },
+  { "description": "Salário", "amount": "5050.00", "type": "entrada", "frequency": "recorrente", "date": "2025-11-10" },
 
    // Dezembro
   { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-12-10" },
