@@ -112,12 +112,12 @@ export default [
  { "description": "Cartão C6 Bank", "amount": "2500.00", "type": "saída", "frequency": "eventual", "date": "2025-10-10" },
  { "description": "Seguro Adovocaticio 2/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2025-10-10" },
 // Novembro
- { "description": "Internet", "amount": "285.00", "type": "saída", "frequency": "recorrente", "date": "2025-11-10" },
+ { "description": "Internet", "amount": "245.00", "type": "saída", "frequency": "recorrente", "date": "2025-11-10" },
  { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2025-11-10" },
  { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-11-10" },
- { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-11-10" },
- { "description": "Seguro Automotivo", "amount": "1100.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
- { "description": "Cartão C6 Bank", "amount": "1900.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
+ { "description": "Condominio", "amount": "400.00", "type": "saída", "frequency": "recorrente", "date": "2025-11-10" },
+ { "description": "Seguro Automotivo", "amount": "1400.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
+ { "description": "Cartão C6 Bank", "amount": "2400.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
  { "description": "Seguro Adovocaticio 3/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
 
 ]
