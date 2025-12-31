@@ -46,6 +46,10 @@ export default [
    // Dezembro
   { "description": "Salário", "amount": "5000.00", "type": "entrada", "frequency": "recorrente", "date": "2025-12-10" },
 
+     // Dezembro
+  { "description": "Salário", "amount": "4800.00", "type": "entrada", "frequency": "recorrente", "date": "2026-01-08" },
+
+
 ]
 
 
