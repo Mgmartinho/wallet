@@ -120,4 +120,26 @@ export default [
  { "description": "Cartão C6 Bank", "amount": "2400.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
  { "description": "Seguro Adovocaticio 3/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
 
+
+// Dezembro
+ { "description": "Internet", "amount": "245.00", "type": "saída", "frequency": "recorrente", "date": "2025-12-10" },
+ { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2025-12-10" },
+ { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-12-10" },
+ { "description": "Condominio", "amount": "400.00", "type": "saída", "frequency": "recorrente", "date": "2025-12-10" },
+ { "description": "Seguro Automotivo", "amount": "1400.00", "type": "saída", "frequency": "eventual", "date": "2025-12-10" },
+ { "description": "Cartão C6 Bank", "amount": "2400.00", "type": "saída", "frequency": "eventual", "date": "2025-12-10" },
+ { "description": "Seguro Adovocaticio 3/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2025-12-10" },
+
+  // janeiro 2026
+
+  { "description": "Internet", "amount": "250.00", "type": "saída", "frequency": "recorrente", "date": "2026-01-10" },
+  { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2026-01-10" },
+  { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2026-01-10" },
+  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2026-01-10" },
+  { "description": "Cartão Porto Seguro", "amount": "2032.00", "type": "saída", "frequency": "eventual", "date": "2026-01-10" },
+  { "description": "Cartão C6", "amount": "2000.00", "type": "saída", "frequency": "eventual", "date": "2026-01-10" },
+  { "description": "Seguro Adovocaticio 4/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2026-01-10" },
+
+
+  
 ]
