@@ -26,11 +26,26 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
 
     > h2 {
         margin: 20px 0;
         padding-left: 0;
         font-size: 1.5rem;
+
+        @media(max-width: 768px) {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        @media(max-width: 480px) {
+            font-size: 1rem;
+        }
+    }
+
+    @media(max-width: 768px) {
+        flex-direction: column;
     }
 `;
 
@@ -40,7 +55,13 @@ export const LegendContainer = styled.div`
     align-items: center;
     gap: 16px;
     padding-right: 16px;
-    flex-wrap: wrap; // para responsividade
+    flex-wrap: wrap;
+
+    @media(max-width: 768px) {
+        padding-right: 0;
+        width: 100%;
+        justify-content: flex-start;
+    }
 `;
 
 export const Legend = styled.li<ILegendProps>`

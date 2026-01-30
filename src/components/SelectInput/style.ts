@@ -8,6 +8,13 @@ export const Container = styled.div`
         border-radius: 5px;
 
         margin-left:5px;
+
+        @media(max-width: 480px) {
+            padding: 5px 8px;
+            font-size: 14px;
+            margin-left: 0;
+            margin-top: 5px;
+        }
     }
 
 `;

@@ -9,6 +9,14 @@ export const Grid = styled.div`
         'AS CT';
 
     height: 100vh;
+
+    @media(max-width: 768px) {
+        grid-template-columns: 100%;
+        grid-template-rows: 70px auto;
+        grid-template-areas:
+            'MH'
+            'CT';
+    }
 `;
 
 

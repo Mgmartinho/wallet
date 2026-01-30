@@ -1,5 +1,4 @@
-export default [
-
+const gains = [
   { "description": "Salário", "amount": "4700.00", "type": "entrada", "frequency": "recorrente", "date": "2025-01-10" },
   { "description": "Salário", "amount": "4600.00", "type": "entrada", "frequency": "recorrente", "date": "2025-02-10" },
 
@@ -41,11 +40,23 @@ export default [
   { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-10-10" },
 
    // Novembro
-  { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-11-10" },
+  { "description": "Salário", "amount": "4800.00", "type": "entrada", "frequency": "recorrente", "date": "2025-11-10" },
 
    // Dezembro
-  { "description": "Salário", "amount": "4500.00", "type": "entrada", "frequency": "recorrente", "date": "2025-12-10" },
+  { "description": "Salário", "amount": "5100.00", "type": "entrada", "frequency": "recorrente", "date": "2025-12-10" },
 
+
+  //2026
+  // Janeiro
+  { "description": "Salário", "amount": "5100.00", "type": "entrada", "frequency": "recorrente", "date": "2026-01-10" },
+
+
+  // Fevereiro
+  { "description": "Salário", "amount": "4700.00", "type": "entrada", "frequency": "recorrente", "date": "2026-02-10" },
+
+  // Março
+  { "description": "Salário", "amount": "5100.00", "type": "entrada", "frequency": "recorrente", "date": "2026-03-10" },
 ]
 
 
+export default gains;

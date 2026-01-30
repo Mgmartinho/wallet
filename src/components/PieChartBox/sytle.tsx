@@ -13,7 +13,11 @@ export const Container = styled.div`
     border-radius: 7px;
     display: flex;
 
-
+    @media(max-width: 1024px) {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
 `;
 
 export const SideLeft = styled.aside`
@@ -21,8 +25,20 @@ export const SideLeft = styled.aside`
 
     > h2{
         margin-bottom: 20px;
+
+        @media(max-width: 768px) {
+            font-size: 1.2rem;
+        }
+
+        @media(max-width: 480px) {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
     }
 
+    @media(max-width: 1024px) {
+        padding: 20px 15px;
+    }
 `;
 
 export const LegendContainer = styled.ul`
@@ -59,4 +75,8 @@ export const SideRight = styled.main`
     flex: 1;
     justify-content: center;
 
+    @media(max-width: 1024px) {
+        padding: 20px;
+        min-height: 250px;
+    }
 `;

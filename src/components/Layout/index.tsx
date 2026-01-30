@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid } from "./style";
 import MainHeader from "../MainHeader";
 import Content from "../Content";
@@ -9,14 +9,20 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+    const handleToggleMenu = () => {
+        setMenuIsOpen(!menuIsOpen);
+    };
+
     return (
 
         <Grid>
-            <Aside />         {/* Agora o Aside fica primeiro */}
-            <MainHeader />    {/* O MainHeader fica depois */}
+            <Aside menuIsOpen={menuIsOpen} onCloseMenu={() => setMenuIsOpen(false)} />
+            <MainHeader onToggleMenu={handleToggleMenu} />
             <Content>
                 {children}
-            </Content>       {/* E o Content vai por último */}
+            </Content>
         </Grid>
 
     );

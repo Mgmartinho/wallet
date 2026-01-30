@@ -1,4 +1,4 @@
-export default [
+const expenses = [
 
   // janeiro
 
@@ -116,8 +116,47 @@ export default [
  { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2025-11-10" },
  { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-11-10" },
  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-11-10" },
- { "description": "Seguro Automotivo", "amount": "1100.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
- { "description": "Cartão C6 Bank", "amount": "1900.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
+ { "description": "Cartão Porto + Seguro Automotivo", "amount": "1400.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
+ { "description": "Cartão C6 Bank", "amount": "2400.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
  { "description": "Seguro Adovocaticio 3/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2025-11-10" },
 
-]
+
+ // Dezembro
+ { "description": "Internet", "amount": "285.00", "type": "saída", "frequency": "recorrente", "date": "2025-12-10" },
+ { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2025-12-10" },
+ { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2025-12-10" },
+ { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2025-12-10" },
+ { "description": "Cartão Porto + Seguro Automotivo", "amount": "1500.00", "type": "saída", "frequency": "eventual", "date": "2025-12-10" },
+ { "description": "Cartão C6 Bank", "amount": "2500.00", "type": "saída", "frequency": "eventual", "date": "2025-12-10" },
+ { "description": "Seguro Adovocaticio 4/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2025-12-10" },
+
+  // Janeiro
+ { "description": "Internet", "amount": "285.00", "type": "saída", "frequency": "recorrente", "date": "2026-01-10" },
+ { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2026-01-10" },
+ { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2026-01-10" },
+ { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2026-01-10" },
+ { "description": "Cartão Porto + Seguro Automotivo", "amount": "1500.00", "type": "saída", "frequency": "eventual", "date": "2026-01-10" },
+ { "description": "Cartão C6 Bank", "amount": "2000.00", "type": "saída", "frequency": "eventual", "date": "2026-01-10" },
+ { "description": "Seguro Adovocaticio 5/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2026-01-10" },
+
+  // Fevereiro
+ { "description": "Internet", "amount": "242.00", "type": "saída", "frequency": "recorrente", "date": "2026-02-10" },
+ { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2026-02-10" },
+ { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2026-02-10" },
+ { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2026-02-10" },
+ { "description": "Cartão Porto + Seguro Automotivo", "amount": "1500.00", "type": "saída", "frequency": "eventual", "date": "2026-02-10" },
+ { "description": "Cartão C6 Bank", "amount": "2000.00", "type": "saída", "frequency": "eventual", "date": "2026-02-10" },
+ { "description": "Seguro Adovocaticio 6/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2026-02-10" },
+
+// Março
+ { "description": "Internet", "amount": "285.00", "type": "saída", "frequency": "recorrente", "date": "2026-03-10" },
+ { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2026-03-10" },
+ { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2026-03-10" },
+ { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2026-03-10" },
+ { "description": "Cartão Porto + Seguro Automotivo", "amount": "1500.00", "type": "saída", "frequency": "eventual", "date": "2026-03-10" },
+ { "description": "Cartão C6 Bank", "amount": "2000.00", "type": "saída", "frequency": "eventual", "date": "2026-03-10" },
+ { "description": "Seguro Adovocaticio 7/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2026-03-10" },
+
+];
+
+export default expenses;

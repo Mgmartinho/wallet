@@ -16,6 +16,16 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
+    @media(max-width: 1024px) {
+        width: 100%;
+        height: auto;
+        min-height: 200px;
+    }
+
+    @media(max-width: 768px) {
+        padding: 20px 15px;
+    }
+
     > header img{
         width: 35px;
         margin-left: 7px;

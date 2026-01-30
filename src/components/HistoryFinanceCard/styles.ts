@@ -33,6 +33,18 @@ export const Container = styled.li`
     > div span{
         font-weight: bold;
         font-size: 22px;
+
+        @media(max-width: 768px) {
+            font-size: 18px;
+        }
+
+        @media(max-width: 480px) {
+            font-size: 16px;
+        }
+    }
+
+    @media(max-width: 768px) {
+        padding: 10px 8px;
     }
 `;
 

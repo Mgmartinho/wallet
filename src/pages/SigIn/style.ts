@@ -18,11 +18,20 @@ export const Logo = styled.div`
     > h2 {
         color: ${props => props.theme.colors.white};
         margin-left: 7px;
+
+        @media(max-width: 480px) {
+            font-size: 1.3rem;
+        }
     }
 
     > img {
         width: 50px;
         height: 50px;
+
+        @media(max-width: 480px) {
+            width: 40px;
+            height: 40px;
+        }
     }
 `;
 
@@ -38,10 +47,22 @@ export const Form = styled.form`
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+
+    @media(max-width: 480px) {
+        width: 90%;
+        max-width: 280px;
+        padding: 20px;
+        height: auto;
+        min-height: 280px;
+    }
 `;
 
 export const FormTitle = styled.h1`
     color: ${props => props.theme.colors.white};
+
+    @media(max-width: 480px) {
+        font-size: 1.5rem;
+    }
 
     &:after {
         content: '';

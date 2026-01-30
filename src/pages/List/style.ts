@@ -17,6 +17,12 @@ export const Filters = styled.div`
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @media(max-width: 480px) {
+        margin-bottom: 20px;
+    }
 
     .tag-filter{
         font-size: 18px;
@@ -29,6 +35,11 @@ export const Filters = styled.div`
         transition: opacity .3s;
 
         opacity: 0.4;
+
+        @media(max-width: 480px) {
+            font-size: 16px;
+            margin: 0 5px;
+        }
 
         &:hover{
             opacity: 0.7;

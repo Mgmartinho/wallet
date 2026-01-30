@@ -10,15 +10,27 @@ width:100%;
 display:flex;
 justify-content: space-between;
 margin-bottom:25px;
+flex-wrap: wrap;
+gap: 15px;
 
-
-    `;
+@media(max-width: 768px) {
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+`;
 
 
 export const TitleContainer = styled.div<ITitleContainerProps>`
 >h1{
         color: ${props => props.theme.colors.white};
 
+    @media(max-width: 768px) {
+        font-size: 24px;
+    }
+
+    @media(max-width: 480px) {
+        font-size: 20px;
+    }
 
     &::after{
         content: "";
@@ -34,9 +46,15 @@ export const TitleContainer = styled.div<ITitleContainerProps>`
 
 export const Controllers = styled.div`
 display: flex;
-button{
-    margin: 0 5px;
+flex-wrap: wrap;
+gap: 10px;
 
+button{
+    margin: 0;
 }
 
+@media(max-width: 768px) {
+    width: 100%;
+    justify-content: space-around;
+}
 `;

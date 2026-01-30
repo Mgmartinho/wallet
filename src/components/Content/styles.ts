@@ -8,6 +8,14 @@ export const Container = styled.div`
 
     height: calc(100vh - 70px);
     overflow-y:scroll;
+
+    @media(max-width: 768px) {
+        padding: 15px;
+    }
+
+    @media(max-width: 480px) {
+        padding: 10px;
+    }
     
     ::-webkit-scrollbar{
         width:10px;
