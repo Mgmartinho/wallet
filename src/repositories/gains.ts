@@ -45,6 +45,13 @@ const gains = [
    // Dezembro
   { "description": "Salário", "amount": "5100.00", "type": "entrada", "frequency": "recorrente", "date": "2025-12-10" },
 
+  { "description": "Salário", "amount": "5050.00", "type": "entrada", "frequency": "recorrente", "date": "2025-11-10" },
+
+   // Dezembro
+  { "description": "Salário", "amount": "5000.00", "type": "entrada", "frequency": "recorrente", "date": "2025-12-10" },
+
+   // Janeiro
+  { "description": "Salário", "amount": "4800.00", "type": "entrada", "frequency": "recorrente", "date": "2026-01-08" },
 
   //2026
   // Janeiro
