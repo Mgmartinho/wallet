@@ -182,6 +182,24 @@ const expenses = [
   { "description": "Cartão C6", "amount": "2000.00", "type": "saída", "frequency": "eventual", "date": "2026-01-10" },
   { "description": "Seguro Adovocaticio 4/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2026-01-10" },
 
+  // Fevereiro 2026
+
+  { "description": "Internet", "amount": "250.00", "type": "saída", "frequency": "recorrente", "date": "2026-02-10" },
+  { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2026-02-10" },
+  { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2026-02-10" },
+  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2026-02-10" },
+  { "description": "Cartão Porto Seguro", "amount": "1511.00", "type": "saída", "frequency": "eventual", "date": "2026-02-10" },
+  { "description": "Cartão C6", "amount": "2000.00", "type": "saída", "frequency": "eventual", "date": "2026-02-10" },
+  { "description": "Seguro Adovocaticio 5/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2026-02-10" },
+  // Março 2026
+
+  { "description": "Internet", "amount": "250.00", "type": "saída", "frequency": "recorrente", "date": "2026-03-10" },
+  { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2026-03-10" },
+  { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2026-03-10" },
+  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2026-03-10" },
+  { "description": "Cartão Porto Seguro", "amount": "2231.19", "type": "saída", "frequency": "eventual", "date": "2026-03-10" },
+  { "description": "Cartão C6", "amount": "2400.00", "type": "saída", "frequency": "eventual", "date": "2026-03-10" },
+  { "description": "Seguro Adovocaticio 6/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2026-03-10" },
 
   
 ]
