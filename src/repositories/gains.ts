@@ -62,7 +62,7 @@ const gains = [
   { "description": "Salário", "amount": "4700.00", "type": "entrada", "frequency": "recorrente", "date": "2026-02-10" },
 
   // Março
-  { "description": "Salário", "amount": "5100.00", "type": "entrada", "frequency": "recorrente", "date": "2026-03-10" },
+  { "description": "Salário", "amount": "5239.00", "type": "entrada", "frequency": "recorrente", "date": "2026-03-10" },
 ]
 
 
