@@ -201,6 +201,15 @@ const expenses = [
   { "description": "Cartão C6", "amount": "2400.00", "type": "saída", "frequency": "eventual", "date": "2026-03-10" },
   { "description": "Seguro Adovocaticio 6/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2026-03-10" },
 
+    // Abril 2026
+  { "description": "Internet", "amount": "250.00", "type": "saída", "frequency": "recorrente", "date": "2026-00-10" },
+  { "description": "Celular", "amount": "53.90", "type": "saída", "frequency": "recorrente", "date": "2026-04-10" },
+  { "description": "Luz", "amount": "300.00", "type": "saída", "frequency": "recorrente", "date": "2026-04-10" },
+  { "description": "Condominio", "amount": "450.00", "type": "saída", "frequency": "recorrente", "date": "2026-04-10" },
+  { "description": "Cartão Porto Seguro", "amount": "2700.00", "type": "saída", "frequency": "eventual", "date": "2026-04-10" },
+  { "description": "Cartão C6", "amount": "1500.00", "type": "saída", "frequency": "eventual", "date": "2026-04-10" },
+  { "description": "Seguro Adovocaticio 7/13", "amount": "105.00", "type": "saída", "frequency": "eventual", "date": "2026-04-10" },
+  
   
 ]
 export default expenses;
