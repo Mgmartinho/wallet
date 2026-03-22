@@ -63,6 +63,14 @@ const gains = [
 
   // Março
   { "description": "Salário", "amount": "5239.00", "type": "entrada", "frequency": "recorrente", "date": "2026-03-10" },
+
+    // Abril
+  { "description": "Salário", "amount": "5239.00", "type": "entrada", "frequency": "recorrente", "date": "2026-03-10" },
+
+    // Março
+  { "description": "Salário", "amount": "7000.00", "type": "entrada", "frequency": "recorrente", "date": "2026-03-10" },
+
+
 ]
 
 
